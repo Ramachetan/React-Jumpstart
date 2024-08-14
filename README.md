@@ -9,16 +9,22 @@ A step-by-step guide to running Gemini-generated React code locally.
 
 ## Step 1: Create a New React App with Vite
 
-1. Open your terminal and run:
+1. Create a new Vite project:
    ```bash
    npm create vite@latest my-app
    ```
-2. Select the following options:
+
+2. When prompted, select:
    - Framework: React
    - Variant: JavaScript
-3. Navigate to the new project folder and install dependencies:
+
+3. Navigate to the project folder:
    ```bash
    cd my-app
+   ```
+
+4. Install dependencies:
+   ```bash
    npm install
    ```
 
@@ -27,10 +33,14 @@ A step-by-step guide to running Gemini-generated React code locally.
 1. Install Tailwind CSS and its dependencies:
    ```bash
    npm install -D tailwindcss postcss autoprefixer
+   ```
+
+2. Initialize Tailwind CSS:
+   ```bash
    npx tailwindcss init -p
    ```
 
-2. Update `vite.config.js`:
+3. Update `vite.config.js`:
    ```javascript
    import { defineConfig } from 'vite'
    import react from '@vitejs/plugin-react'
@@ -46,7 +56,7 @@ A step-by-step guide to running Gemini-generated React code locally.
    })
    ```
 
-3. Create `jsconfig.json`:
+4. Create `jsconfig.json`:
    ```json
    {
      "compilerOptions": {
@@ -59,7 +69,7 @@ A step-by-step guide to running Gemini-generated React code locally.
    }
    ```
 
-4. Initialize Shadcn UI:
+5. Initialize Shadcn UI:
    ```bash
    npx shadcn-ui@latest init
    ```
@@ -72,16 +82,21 @@ A step-by-step guide to running Gemini-generated React code locally.
    npx shadcn-ui@latest add card button input
    ```
 
-2. Install other necessary libraries (e.g., Lucide React):
+2. Install Lucide React:
    ```bash
    npm install lucide-react
    ```
 
 ## Step 4: Add Your React Component
 
-1. Create a new file for your component (e.g., `src/components/LLMModel.jsx`).
-2. Paste your Gemini-generated React code into this file.
-3. Update `src/App.jsx` to include your new component:
+1. Create a new file for your component:
+   ```bash
+   touch src/components/LLMModel.jsx
+   ```
+
+2. Paste your Gemini-generated React code into `src/components/LLMModel.jsx`.
+
+3. Update `src/App.jsx`:
    ```jsx
    import './App.css'
    import LLMModel from './components/LLMModel'
@@ -99,10 +114,9 @@ A step-by-step guide to running Gemini-generated React code locally.
 
 ## Step 5: Run the App
 
-1. Start the development server:
-   ```bash
-   npm run dev
-   ```
-2. Open your browser and navigate to the URL provided in the terminal (usually `http://localhost:5173`).
+Start the development server:
+```bash
+npm run dev
+```
 
-Your Gemini-generated React component should now be running locally!
+Your Gemini-generated React component should now be running locally! Open your browser and navigate to the URL provided in the terminal (usually `http://localhost:5173`).
