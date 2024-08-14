@@ -73,7 +73,21 @@ A step-by-step guide to running Gemini-generated React code locally.
    ```bash
    npx shadcn-ui@latest init
    ```
-   Follow the prompts, selecting options appropriate for your project.
+
+   When prompted, select the following options:
+   ```
+   ✔ Would you like to use TypeScript (recommended)? › No
+   ✔ Which style would you like to use? › Default
+   ✔ Which color would you like to use as base color? › Slate
+   ✔ Where is your global CSS file? › src/index.css
+   ✔ Would you like to use CSS variables for colors? › Yes
+   ✔ Are you using a custom tailwind prefix eg. tw-? › (Leave blank if not)
+   ✔ Where is your tailwind.config.js located? › tailwind.config.js
+   ✔ Configure the import alias for components: › @/components
+   ✔ Configure the import alias for utils: › @/lib/utils
+   ✔ Are you using React Server Components? › No
+   ✔ Write configuration to components.json. Proceed? › Yes
+   ```
 
 ## Step 3: Install Additional Libraries and Components
 
