@@ -1,118 +1,108 @@
-![License](https://img.shields.io/badge/license-MIT-green)
-
 # Gemini React Tutorial
 
-> Gemini-React-Jumpstart: A step-by-step guide to running Gemini-generated React code locally.
+A step-by-step guide to running Gemini-generated React code locally.
 
----
+## Prerequisites
 
-## Getting Started
-You can use the example provided to learn the process. Before beginning the following steps, remove the my-app folder so you can recreate it.
+- Node.js and npm installed on your system
+- Basic knowledge of React and command line operations
 
-### Step 1: Create new React app with Vite
+## Step 1: Create a New React App with Vite
 
-```bash
-npm create vite@latest my-app
-✔ Select a framework: › React
-✔ Select a variant: › JavaScript
-cd my-app
-npm install
-```
+1. Open your terminal and run:
+   ```bash
+   npm create vite@latest my-app
+   ```
+2. Select the following options:
+   - Framework: React
+   - Variant: JavaScript
+3. Navigate to the new project folder and install dependencies:
+   ```bash
+   cd my-app
+   npm install
+   ```
 
-### Step 2: Install Tailwindcss and Shadcn
+## Step 2: Set Up Tailwind CSS and Shadcn UI
 
-From instructions: https://ui.shadcn.com/docs/installation/vite
+1. Install Tailwind CSS and its dependencies:
+   ```bash
+   npm install -D tailwindcss postcss autoprefixer
+   npx tailwindcss init -p
+   ```
 
-```bash
-npm install -D tailwindcss postcss autoprefixer
-```
+2. Update `vite.config.js`:
+   ```javascript
+   import { defineConfig } from 'vite'
+   import react from '@vitejs/plugin-react'
+   import path from 'path'
 
-```bash
-npx tailwindcss init -p
-```
+   export default defineConfig({
+     plugins: [react()],
+     resolve: {
+       alias: {
+         '@': path.resolve(__dirname, './src'),
+       },
+     },
+   })
+   ```
 
-Update `vite.config.js`:
+3. Create `jsconfig.json`:
+   ```json
+   {
+     "compilerOptions": {
+       "baseUrl": ".",
+       "paths": {
+         "@/*": ["src/*"]
+       }
+     },
+     "include": ["src/**/*"]
+   }
+   ```
 
-```javascript
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+4. Initialize Shadcn UI:
+   ```bash
+   npx shadcn-ui@latest init
+   ```
+   Follow the prompts, selecting options appropriate for your project.
 
-export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-})
-```
+## Step 3: Install Additional Libraries and Components
 
-Create `jsconfig.json`:
+1. Install required Shadcn UI components:
+   ```bash
+   npx shadcn-ui@latest add card button input
+   ```
 
-```json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  },
-  "include": ["src/**/*"]
-}
-```
+2. Install other necessary libraries (e.g., Lucide React):
+   ```bash
+   npm install lucide-react
+   ```
 
-```bash
-npx shadcn-ui@latest init
-```
+## Step 4: Add Your React Component
 
-```
-✔ Would you like to use TypeScript (recommended)? no
-✔ Which style would you like to use? › Default
-✔ Which color would you like to use as base color? › Slate
-✔ Where is your global CSS file? … src/index.css
-✔ Would you like to use CSS variables for colors? … yes
-✔ Are you using a custom tailwind prefix eg. tw-? (Leave blank if not) …
-✔ Where is your tailwind.config.js located? … tailwind.config.js
-✔ Configure the import alias for components: … @/components
-✔ Configure the import alias for utils: … @/lib/utils
-✔ Are you using React Server Components? … no
-✔ Write configuration to components.json. Proceed? … yes
-```
+1. Create a new file for your component (e.g., `src/components/LLMModel.jsx`).
+2. Paste your Gemini-generated React code into this file.
+3. Update `src/App.jsx` to include your new component:
+   ```jsx
+   import './App.css'
+   import LLMModel from './components/LLMModel'
 
-### 3. Install Other Libraries and Components
-Choose your list of required components and libraries to download based upon the imports in your react file.
-```bash
-npx shadcn-ui@latest add card button input
-```
-  
-```bash
-npm install lucide-react
-```
+   function App() {
+     return (
+       <>
+         <LLMModel/>
+       </>
+     )
+   }
 
-### 4. Add Your Artifact Code
+   export default App
+   ```
 
-`LLMModel.jsx` is an included artifact example. You can move the file to `src/components/LLMModel.jsx`.
+## Step 5: Run the App
 
-Then add it to your app by updating `App.jsx`:
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+2. Open your browser and navigate to the URL provided in the terminal (usually `http://localhost:5173`).
 
-```jsx
-import './App.css'
-import LLMModel from './components/LLMModel'
-
-function App() {
-  return (
-    <>
-      <LLMModel/>
-    </>
-  )
-}
-
-export default App
-```
-
-### 5. Run the App
-
-```bash
-npm run dev
-```
+Your Gemini-generated React component should now be running locally!
